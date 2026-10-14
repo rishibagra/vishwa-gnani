@@ -1,0 +1,26 @@
+[
+  {
+    "id": "read-india",
+    "title": "Read India Initiative",
+    "category": "Education",
+    "description": "Improving foundational literacy and numeracy skills for children aged 6-14 in rural communities across India.",
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop",
+    "stats": "1M+ Children Reached"
+  },
+  {
+    "id": "vocational-training",
+    "title": "Vocational Skill Development",
+    "category": "Livelihood",
+    "description": "Equipping youth and young adults with employment-oriented skills, digital training, and entrepreneurship tools.",
+    "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop",
+    "stats": "50,000+ Youth Trained"
+  },
+  {
+    "id": "early-childhood",
+    "title": "Early Childhood Education",
+    "category": "Child Care",
+    "description": "Establishing community pre-school centers and supporting Anganwadis for early cognitive development.",
+    "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop",
+    "stats": "500+ Anganwadis Supported"
+  }
+]
