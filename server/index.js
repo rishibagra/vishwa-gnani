@@ -66,8 +66,13 @@ app.get('/', (req, res) => {
   res.send('Vishwa Gnani Trust API is running...');
 });
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+export default app;
+
+// Vercel invokes the exported Express app as a serverless function.
+// Keep listen() for local development and traditional Node hosting.
+if (!process.env.VERCEL) {
+  const PORT = Number(process.env.PORT) || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
