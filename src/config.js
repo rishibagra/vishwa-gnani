@@ -1,6 +1,3 @@
-// src/config.js
-const API_URL = process.env.NODE_ENV === 'production'
-  ? 'https://your-backend-app-name.onrender.com' // 👈 Jab aap backend host karoge, uska live URL yahan daal dena
-  : 'http://localhost:5000';                   // 👈 Local testing ke liye
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
 export default API_URL;

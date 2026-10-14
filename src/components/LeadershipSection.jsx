@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config';
 
 export default function LeadershipSection() {
   const [members, setMembers] = useState([]);
@@ -7,7 +8,7 @@ export default function LeadershipSection() {
   useEffect(() => {
     const fetchLeadership = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/admin/members');
+        const response = await fetch(`${API_URL}/api/admin/members`);
         if (!response.ok) throw new Error('Failed to fetch leadership data');
         const data = await response.json();
         setMembers(data);
@@ -38,7 +39,7 @@ export default function LeadershipSection() {
       cleanPath = `/${cleanPath}`;
     }
 
-    return `http://localhost:5000${cleanPath}`;
+    return `${API_URL}${cleanPath}`;
   };
 
   // Define strict role display order priority matching the admin dropdown options

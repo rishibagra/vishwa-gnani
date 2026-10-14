@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import API_URL from '../config';
 
 export default function ProgramDetail() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ export default function ProgramDetail() {
   useEffect(() => {
     const fetchProgramDetail = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/programs`);
+        const res = await fetch(`${API_URL}/api/programs`);
         if (res.ok) {
           const data = await res.json();
           const found = data.find((p) => String(p._id) === String(id) || String(p.id) === String(id));
@@ -56,7 +57,7 @@ export default function ProgramDetail() {
   const handleSaveUpdates = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/program/${id}`, {
+      const res = await fetch(`${API_URL}/api/admin/program/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editForm)
@@ -82,7 +83,7 @@ export default function ProgramDetail() {
   const handleDeleteProgram = async () => {
     if (window.confirm('Are you sure you want to delete this program/activity?')) {
       try {
-        const res = await fetch(`http://localhost:5000/api/admin/program/${id}`, {
+        const res = await fetch(`${API_URL}/api/admin/program/${id}`, {
           method: 'DELETE',
         });
         if (res.ok) {
