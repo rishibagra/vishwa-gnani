@@ -19,18 +19,34 @@ const __dirname = path.dirname(__filename);
 
 
 // Middleware
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
+const allowedOrigins = (process.env.CLIENT_URL || [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'https://vishwagnanisevatrust.org',
+  'https://www.vishwagnanisevatrust.org'
+].join(','))
   .split(',')
-  .map((origin) => origin.trim())
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
   .filter(Boolean);
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin?.replace(/\/+$/, '');
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+
+  next();
+});
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin.replace(/\/+$/, ''))) {
       return callback(null, true);
     }
 
-    return callback(new Error(`CORS origin not allowed: ${origin}`));
+    return callback(null, false);
   }
 }));
 app.use(express.json());
