@@ -55,7 +55,8 @@ export default function Footer() {
         {/* Bottom Bar: Credit Line */}
         <div className="pt-6 flex flex-col items-center justify-center text-center text-xs text-gray-400 space-y-2">
           <p className="text-sm font-semibold text-gray-300">
-            Contributed by Rishi Bagra, Shivam Purbey, Akash Kumar Mahato, Ankur Singh — NIT Silchar - Electronics and Communication Engineer Batch of 2028 
+            Contributed by Rishi Bagra, Shivam Purbey, Akash Kumar Mahato, Ankur Singh
+          <p>NIT Silchar - Electronics and Communication Engineer Batch of 2028 </p>
           </p>
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} VISHWAGNANI SEVA TRUST. All rights reserved.
